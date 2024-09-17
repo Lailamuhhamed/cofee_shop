@@ -32,8 +32,8 @@ class CoffeeGrid extends StatelessWidget {
             ),
           );
         } else if (state is GetCoffeesFailureState) {
-          return const SliverToBoxAdapter(
-            child: Text("Something went wrong"),
+          return SliverToBoxAdapter(
+            child: Text(state.message),
           );
         } else {
           return const SliverToBoxAdapter(
