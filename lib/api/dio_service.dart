@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
-abstract class DioService {
+class DioService {
+  DioService._();
   static final Dio _dio = Dio();
 
   static Future<Response> get(String url) async {
