@@ -1,3 +1,4 @@
+import 'package:cofee_shop/manager/get_coffees_cubit/get_coffees_cubit.dart';
 import 'package:cofee_shop/manager/search_coffee_cubit/search_coffee_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,17 +21,18 @@ class SearchTextField extends StatelessWidget {
           const Icon(Icons.search, color: Colors.black),
           const SizedBox(width: 8),
           Expanded(
-            child: BlocListener<SearchCoffeeCubit, SearchCoffeeState>(
-              listener: (context, state) {},
-              child: TextField(
-                onChanged: (value) {
-                  BlocProvider.of<SearchCoffeeCubit>(context)
-                      .searchCoffee(productName: value);
-                },
-                decoration: const InputDecoration(
-                  hintText: "Search coffee",
-                  border: InputBorder.none,
-                ),
+            child: TextField(
+              onChanged: (value) {
+                // check if value is not empty
+                // if (value.isEmpty) {
+                //   BlocProvider.of<GetCoffeesCubit>(context).getCoffees();
+                // }
+                BlocProvider.of<GetCoffeesCubit>(context)
+                    .searchCoffee(productName: value);
+              },
+              decoration: const InputDecoration(
+                hintText: "Search coffee",
+                border: InputBorder.none,
               ),
             ),
           ),

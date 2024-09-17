@@ -16,3 +16,15 @@ final class GetCoffeesFailureState extends GetCoffeesState {
   final String message;
   GetCoffeesFailureState({required this.message});
 }
+
+final class SearchCoffeeLoadingState extends GetCoffeesState {}
+
+final class SearchCoffeeSuccessState extends GetCoffeesState {
+  final List<CoffeeModel> coffees;
+  SearchCoffeeSuccessState({required this.coffees});
+}
+
+final class SearchCoffeeFailureState extends GetCoffeesState {
+  final String message;
+  SearchCoffeeFailureState({required this.message});
+}

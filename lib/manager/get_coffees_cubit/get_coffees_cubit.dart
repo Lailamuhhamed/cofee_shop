@@ -23,4 +23,28 @@ class GetCoffeesCubit extends Cubit<GetCoffeesState> {
       emit(GetCoffeesFailureState(message: e.toString()));
     }
   }
+
+  Future<void> searchCoffee({
+    required String productName,
+  }) async {
+    if (productName == '') {
+      coffees = [];
+      getCoffees();
+      return;
+    }
+    emit(SearchCoffeeLoadingState());
+    try {
+      coffees = [];
+      var data = await ApiService.searchCoffee(productName: productName);
+      // fetch data in a loop
+      for (var element in data) {
+        coffees.add(CoffeeModel.fromJson(element));
+        print('=====================coffee name: $element');
+      }
+      emit(SearchCoffeeSuccessState(coffees: coffees));
+    } catch (e) {
+      print('=====================coffee name: $e');
+      emit(SearchCoffeeFailureState(message: e.toString()));
+    }
+  }
 }

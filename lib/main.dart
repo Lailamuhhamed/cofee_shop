@@ -23,9 +23,9 @@ class CoffeeApp extends StatelessWidget {
         BlocProvider(
           create: (context) => GetCoffeesCubit()..getCoffees(),
         ),
-        BlocProvider(
-          create: (context) => SearchCoffeeCubit(),
-        ),
+        // BlocProvider(
+        //   create: (context) => SearchCoffeeCubit(),
+        // ),
       ],
       child: MaterialApp(
         home: const CoffeeHomePage(),

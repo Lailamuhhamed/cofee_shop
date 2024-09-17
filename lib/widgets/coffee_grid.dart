@@ -14,7 +14,9 @@ class CoffeeGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<GetCoffeesCubit, GetCoffeesState>(
       builder: (context, state) {
-        if (state is GetCoffeesSuccessState) {
+        var cubit = BlocProvider.of<GetCoffeesCubit>(context);
+        if (state is GetCoffeesSuccessState ||
+            state is SearchCoffeeSuccessState) {
           return SliverGrid(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
@@ -25,15 +27,16 @@ class CoffeeGrid extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return CoffeeCard(
-                  coffee: state.coffees[index],
+                  coffee: cubit.coffees[index],
                 );
               },
-              childCount: state.coffees.length,
+              childCount: cubit.coffees.length,
             ),
           );
-        } else if (state is GetCoffeesFailureState) {
-          return SliverToBoxAdapter(
-            child: Text(state.message),
+        } else if (state is GetCoffeesFailureState ||
+            state is SearchCoffeeFailureState) {
+          return const SliverToBoxAdapter(
+            child: Text('something went wrong '),
           );
         } else {
           return const SliverToBoxAdapter(
