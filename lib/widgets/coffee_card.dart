@@ -24,7 +24,7 @@ class CoffeeCard extends StatelessWidget {
               topLeft: Radius.circular(16.0),
               topRight: Radius.circular(16.0),
             ),
-            child: Image.asset(coffee.image, fit: BoxFit.fill),
+            child: Image.network(coffee.image, fit: BoxFit.fill),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),

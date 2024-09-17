@@ -13,7 +13,7 @@ class GetCoffeesCubit extends Cubit<GetCoffeesState> {
   Future<void> getCoffees() async {
     emit(GetCoffeesLoadingState());
     try {
-      var data = await ApiService.getCoffees(endpoint: 'endpoint');
+      var data = await ApiService.getCoffees(endpoint: '/Products');
       // fetch data in a loop
       for (var element in data) {
         coffees.add(CoffeeModel.fromJson(element));
