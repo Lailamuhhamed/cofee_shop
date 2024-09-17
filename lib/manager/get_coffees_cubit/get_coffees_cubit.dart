@@ -12,7 +12,7 @@ class GetCoffeesCubit extends Cubit<GetCoffeesState> {
   List<CoffeeModel> coffees = [];
   Future<void> getCoffees() async {
     emit(GetCoffeesLoadingState());
-
+    await ApiService.getCoffees(endpoint: 'endpoint');
     emit(GetCoffeesSuccessState(coffees: coffees));
   }
 }
