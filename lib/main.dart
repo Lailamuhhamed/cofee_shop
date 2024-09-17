@@ -1,4 +1,6 @@
+import 'package:cofee_shop/manager/get_coffees_cubit/get_coffees_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'views/coffee_home.dart';
@@ -11,11 +13,14 @@ class CoffeeApp extends StatelessWidget {
   const CoffeeApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const CoffeeHomePage(),
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        textTheme: GoogleFonts.soraTextTheme(),
+    return BlocProvider(
+      create: (context) => GetCoffeesCubit(),
+      child: MaterialApp(
+        home: const CoffeeHomePage(),
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          textTheme: GoogleFonts.soraTextTheme(),
+        ),
       ),
     );
   }
