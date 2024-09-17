@@ -18,7 +18,7 @@ class CoffeeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GetCoffeesCubit(),
+      create: (context) => GetCoffeesCubit()..getCoffees(),
       child: MaterialApp(
         home: const CoffeeHomePage(),
         debugShowCheckedModeBanner: false,
