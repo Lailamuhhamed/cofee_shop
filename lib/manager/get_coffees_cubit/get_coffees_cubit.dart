@@ -18,9 +18,9 @@ class GetCoffeesCubit extends Cubit<GetCoffeesState> {
       for (var element in data) {
         coffees.add(CoffeeModel.fromJson(element));
       }
+      emit(GetCoffeesSuccessState(coffees: coffees));
     } catch (e) {
       emit(GetCoffeesFailureState(message: e.toString()));
     }
-    emit(GetCoffeesSuccessState(coffees: coffees));
   }
 }
