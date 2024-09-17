@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'home.dart';
+
+import 'views/coffee_home.dart';
 
 void main() {
-  runApp(CoffeeApp());
+  runApp(const CoffeeApp());
 }
 
 class CoffeeApp extends StatelessWidget {
@@ -11,7 +12,7 @@ class CoffeeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: const CoffeeHomePage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.soraTextTheme(),
