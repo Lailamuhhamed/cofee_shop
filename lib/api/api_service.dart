@@ -1,3 +1,3 @@
 class ApiService {
-  static String baseUrl = "https://api.sampleapis.com/coffee";
+  static String baseUrl = "http://coffeeapp.somee.com/api/Coffee";
 }
