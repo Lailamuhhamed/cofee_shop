@@ -1,0 +1,1 @@
+ D:\\Mobile\ DEV\\FlutterProjects\\cloned\ repo\\cofee_shop\\.dart_tool\\flutter_build\\0de8de0d565676641bca697dd1746554\\native_assets.yaml: 

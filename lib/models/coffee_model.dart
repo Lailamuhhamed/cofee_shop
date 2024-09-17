@@ -1,10 +1,25 @@
+/*
+{
+        "id": 1,
+        "name": "Flat White",
+        "image": "http://coffeeapp.somee.com/Images/photo_2024-09-14_19-13-04.jpg",
+        "price": 3.53,
+        "category": {
+            "id": 3,
+            "name": "Espresso"
+        }
+    },
+*/
+
 class CoffeeModel {
+  final int? id;
   final String image;
   final String name;
   final String description;
   final double price;
 
   CoffeeModel({
+    this.id,
     required this.image,
     required this.name,
     required this.description,
@@ -13,9 +28,10 @@ class CoffeeModel {
 
   factory CoffeeModel.fromJson(Map<String, dynamic> json) {
     return CoffeeModel(
+      id: json['id'],
       image: json['image'],
       name: json['name'],
-      description: json['description'],
+      description: json['name'],
       price: json['price'],
     );
   }
